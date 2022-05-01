@@ -22,6 +22,12 @@ app.MapPut("/aluno", (Aluno aluno) =>
     AlunoAlterado.nome = aluno.nome;
 });
 
+app.MapDelete("/aluno/{matricula}", ([FromRoute] int matricula) =>
+{
+    var aluno = RepositorioAlunos.BuscarAluno(matricula);
+    RepositorioAlunos.ApagarAluno(aluno);
+});
+
 //Inicia a aplicação
 app.Run();
 
@@ -49,6 +55,12 @@ public static class RepositorioAlunos {
     public static Aluno BuscarAluno(int matricula)
     {
         return Alunos.FirstOrDefault(a => a.matricula == matricula);
+    }
+
+    //Método para apagar aluno na lista
+    public static void ApagarAluno(Aluno aluno)
+    {
+        Alunos.Remove(aluno);
     }
 
 }
