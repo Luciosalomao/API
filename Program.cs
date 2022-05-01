@@ -11,9 +11,15 @@ app.MapPost("/aluno", (Aluno aluno)=>{
     RepositorioAlunos.AddAluno(aluno);
 });
 
-app.MapGet("/aluno/{nome}", ([FromRoute] string nome)=>{
-    var aluno = RepositorioAlunos.BuscarAluno(nome);
+app.MapGet("/aluno/{matricula}", ([FromRoute] int matricula) => {
+    var aluno = RepositorioAlunos.BuscarAluno(matricula);
     return aluno;
+});
+
+app.MapPut("/aluno", (Aluno aluno) =>
+{
+    var AlunoAlterado = RepositorioAlunos.BuscarAluno(aluno.matricula);
+    AlunoAlterado.nome = aluno.nome;
 });
 
 //Inicia a aplicação
@@ -40,7 +46,9 @@ public static class RepositorioAlunos {
     }
 
     //Método para buscar aluno na lista
-    public static Aluno BuscarAluno(string nome){
-        return Alunos.FirstOrDefault(a => a.nome == nome);
+    public static Aluno BuscarAluno(int matricula)
+    {
+        return Alunos.FirstOrDefault(a => a.matricula == matricula);
     }
+
 }

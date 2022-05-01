@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\ProjetosWeb\\ProjetosWeb.csproj",
+      "projectUniqueName": "C:\\API\\ProjetosWeb.csproj",
       "projectName": "ProjetosWeb",
-      "projectPath": "C:\\ProjetosWeb\\ProjetosWeb.csproj",
+      "projectPath": "C:\\API\\ProjetosWeb.csproj",
       "packagesPath": "C:\\Users\\Lucio\\.nuget\\packages\\",
-      "outputPath": "C:\\ProjetosWeb\\obj\\",
+      "outputPath": "C:\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Lucio\\AppData\\Roaming\\NuGet\\NuGet.Config",
